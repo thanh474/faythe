@@ -164,6 +164,7 @@ func (s *Scaler) do() {
 						a.Header["X-Auth-Token"] = token
 					}
 				}
+				a.SetHeader("Content-Type", "application/json")
 				if err := alert.SendHTTP(s.httpCli, a); err != nil {
 					msg = common.CnvSliceStrToSliceInf(append([]string{
 						"msg", "Execute action failed",
